@@ -29,7 +29,7 @@ public:
 	void upGrade();
 	void downGrade();
 	//otros
-	void signForm(Form &form);
+	bool signForm(Form &form);
 
 class GradeTooHighException : public std::exception{
 	const char* what() const throw();
