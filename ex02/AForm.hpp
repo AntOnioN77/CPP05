@@ -1,10 +1,10 @@
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 # include <string>
 
 class Bureaucrat;
 
-class Form{
+class AForm{
 	private:
 	const std::string name;
 	bool signature;
@@ -13,11 +13,11 @@ class Form{
 
 	//ortodox canonical form
 	public:
-	Form();
-	Form(const std::string &name, int gradeToSign, int gradeToExecute);
-	Form(const Form &other);
-	~Form();
-	Form &operator=(const Form &other);
+	AForm();
+	AForm(const std::string &name, int gradeToSign, int gradeToExecute);
+	AForm(const AForm &other);
+	~AForm();
+	AForm &operator=(const AForm &other);
 
 	//getters
 	const std::string &getName() const;
@@ -27,6 +27,9 @@ class Form{
 
 	//otros
 	void beSigned(const Bureaucrat &bureaucrat);
+
+	//OJO Cambiar!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	virtual void noNamedFunction() =0;
 
 
 
@@ -39,6 +42,6 @@ class Form{
 
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& form);
+std::ostream& operator<<(std::ostream& os, const AForm& Aform);
 
 #endif

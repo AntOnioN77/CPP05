@@ -1,28 +1,28 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 #include <ostream>
 
 //ortodox canonical form
-Form::Form():
-name("nameless_form"),
+AForm::AForm():
+name("nameless_Aform"),
 signature(false),
 gradeToSign(150),
 gradeToExecute(150)
 {}
 
-Form::Form(const std::string &name, int gradeToSign, int gradeToExecute):
+AForm::AForm(const std::string &name, int gradeToSign, int gradeToExecute):
 name(name),
 signature(false),
 gradeToSign(gradeToSign),
 gradeToExecute(gradeToExecute)
 {
 	if (gradeToSign > 150 || gradeToExecute > 150)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	if (gradeToSign < 1 || gradeToExecute < 1)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 }
 
-Form::Form(const Form &other):
+AForm::AForm(const AForm &other):
 name(other.getName()),
 signature(other.getSignature()),
 gradeToSign(other.getGradeToSign()),
@@ -31,8 +31,8 @@ gradeToExecute(other.getGradeToExecute())
 
 // Este operador apenas tiene sentido, teniendo en cuenta que
 //los atributos name, gradeToSign y gradeToExecute son constantes,
-//lo incluimos para respetar la ortodox canonical form. 
-Form &Form::operator=(const Form &other)
+//lo incluimos para respetar la ortodox canonical Aform. 
+AForm &AForm::operator=(const AForm &other)
 {
 	if (this != &other)
 	{
@@ -42,32 +42,32 @@ Form &Form::operator=(const Form &other)
 }
 
 // Destructor
-Form::~Form()
+AForm::~AForm()
 {}
 
 //getters
-const std::string &Form::getName() const
+const std::string &AForm::getName() const
 {
 	return name;
 }
 
-bool Form::getSignature() const
+bool AForm::getSignature() const
 {
 	return signature;
 }
 
-int Form::getGradeToSign() const
+int AForm::getGradeToSign() const
 {
 	return gradeToSign;
 }
 
-int Form::getGradeToExecute() const
+int AForm::getGradeToExecute() const
 {
 	return gradeToExecute;
 }
 
 //otros
-void Form::beSigned(const Bureaucrat &bureaucrat)
+void AForm::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > gradeToSign)
 		throw GradeTooLowException();
@@ -75,23 +75,23 @@ void Form::beSigned(const Bureaucrat &bureaucrat)
 }
 
 //sobreescribiendo el what() de std::exception par su heredera GradeTooLowException
-const char* Form::GradeTooLowException::what() const throw()
+const char* AForm::GradeTooLowException::what() const throw()
 {
 	return "A GradeTooLowException occurred";
 }
 
 //sobreescribiendo el what() de std::exception par su heredera GradeTooHighException
-const char* Form::GradeTooHighException::what() const throw()
+const char* AForm::GradeTooHighException::what() const throw()
 {
 	return "A GradeTooHighException occurred";
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& form)
+std::ostream& operator<<(std::ostream& os, const AForm& Aform)
 {
-	os << "Form name: " << form.getName()
-		<< ". Grade to sign: " << form.getGradeToSign()
-		<< ". Grade to execute: " << form.getGradeToExecute();
-	if (form.getSignature())
+	os << "AForm name: " << Aform.getName()
+		<< ". Grade to sign: " << Aform.getGradeToSign()
+		<< ". Grade to execute: " << Aform.getGradeToExecute();
+	if (Aform.getSignature())
 		os << ". Signed." << std::endl;
 	else
 		os << ". No signed." << std::endl;
