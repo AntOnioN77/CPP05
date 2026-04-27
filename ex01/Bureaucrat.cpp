@@ -100,3 +100,7 @@ bool Bureaucrat::signForm(Form &form)
 	}
 	return true;
 }
+
+
+const void AForm::execute(Bureaucrat const &executor);
+

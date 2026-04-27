@@ -4,7 +4,7 @@
 
 //ortodox canonical form
 AForm::AForm():
-name("nameless_Aform"),
+name("nameless_form"),
 signature(false),
 gradeToSign(150),
 gradeToExecute(150)
@@ -86,16 +86,30 @@ const char* AForm::GradeTooHighException::what() const throw()
 	return "A GradeTooHighException occurred";
 }
 
-std::ostream& operator<<(std::ostream& os, const AForm& Aform)
+const char* AForm::NotSignedException::what() const throw()
 {
-	os << "AForm name: " << Aform.getName()
-		<< ". Grade to sign: " << Aform.getGradeToSign()
-		<< ". Grade to execute: " << Aform.getGradeToExecute();
-	if (Aform.getSignature())
+	return "A NotSignedException occurred";
+}
+
+std::ostream& operator<<(std::ostream& os, const AForm& form)
+{
+	os << "AForm name: " << form.getName()
+		<< ". Grade to sign: " << form.getGradeToSign()
+		<< ". Grade to execute: " << form.getGradeToExecute();
+	if (form.getSignature())
 		os << ". Signed." << std::endl;
 	else
 		os << ". No signed." << std::endl;
 
 	return os;
+}
+
+void AForm::execute(Bureaucrat const &executor) const
+{
+	if (!signature)
+		throw NotSignedException();
+	if (executor.getGrade() > gradeToExecute)
+		throw GradeTooLowException();
+	action();
 }
 

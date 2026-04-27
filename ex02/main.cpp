@@ -1,12 +1,13 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 int main(void)
 {
+/*
 // TEST 1: Formulario correcto
     try
     {
-        Form M35A("M35A", 35, 40);
+        AForm M35A("M35A", 35, 40);
         std::cout << "[TEST 1 SUPERADO] Formulario M35A creado con éxito." << std::endl;
     }
     catch(const std::exception& e)
@@ -17,7 +18,7 @@ int main(void)
 // TEST 2: Formulario de grado demasiado bajo 
     try
     {
-        Form M35A("M35A", -1, 40);
+        AForm M35A("M35A", -1, 40);
         std::cout << "[TEST 2 FALLIDO] Esperado: GradeTooHighException. Obtenido: Formulario creado con éxito." << std::endl;
     }
     catch(const std::exception& e)
@@ -25,12 +26,12 @@ int main(void)
         std::cout << "[TEST 2 SUPERADO] Excepción esperada capturada: " << e.what() << std::endl;
     }
 
-// TEST 3: signForm con grado insuficiente
+// TEST 3: signAForm con grado insuficiente
     {
         Bureaucrat Oscar("Oscar", 2);
-        Form Orden_Suprema("Orden_Suprema", 1, 40);
+        AForm Orden_Suprema("Orden_Suprema", 1, 40);
 
-        if( Oscar.signForm(Orden_Suprema) == true )
+        if( Oscar.signAForm(Orden_Suprema) == true )
             std::cout << "[TEST 3A FALLIDO] Esperado: GradeTooLowException. Obtenido: Formulario firmado con éxito." << std::endl;
 		else
 			std::cout << "[TEST 3A SUPERADO] Formulario no firmado." << std::endl;
@@ -41,11 +42,11 @@ int main(void)
 			std::cout << "[TEST 3B FALLIDO] Esperado: Formulario no firmado. Obtenido: Formulario firmado." << std::endl;
     }
 
-// TEST 4: signForm() con grado valido
+// TEST 4: signAForm() con grado valido
     {
         Bureaucrat PedroP("PedroP", 1);
-        Form Orden_Suprema("Orden_Suprema", 1, 40);
-        if (PedroP.signForm(Orden_Suprema) == true)
+        AForm Orden_Suprema("Orden_Suprema", 1, 40);
+        if (PedroP.signAForm(Orden_Suprema) == true)
         {
             std::cout << "[TEST 4A SUPERADO] Formulario firmado con éxito por PedroP." << std::endl;
         }
@@ -62,7 +63,7 @@ int main(void)
     // TEST 5: Constructor con gradeToExecute fuera de rango
     try
     {
-        Form F("F", 50, 151);
+        AForm F("F", 50, 151);
         std::cout << "[TEST 5 FALLIDO] Esperado: GradeTooLowException. Obtenido: Formulario creado." << std::endl;
     }
     catch(const std::exception& e)
@@ -70,17 +71,17 @@ int main(void)
         std::cout << "[TEST 5 SUPERADO] Excepción esperada capturada: " << e.what() << std::endl;
     }
 
-    // TEST 6: operator<< de Form
+    // TEST 6: operator<< de AForm
     {
-        Form Formulario_Test_out("Formulario_Test_out", 42, 10);
+        AForm Formulario_Test_out("Formulario_Test_out", 42, 10);
         std::cout << "[TEST 6A] Output operator<< (No signed):" << std::endl;
         std::cout << Formulario_Test_out;
 
         std::cout << "[TEST 6B] Output operator<< (Signed):" << std::endl;
 		Bureaucrat Marvin("Marvin", 42);
-		Marvin.signForm(Formulario_Test_out);
+		Marvin.signAForm(Formulario_Test_out);
         std::cout << Formulario_Test_out;
     }
-
+*/
     return 0;
 }
