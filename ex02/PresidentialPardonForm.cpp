@@ -1,22 +1,56 @@
-#ifndef PRESIDENTIALPARDONFORM_CPP
-# define PRESIDENTIALPARDONFORM_CPP
-# include "AForm.hpp"
-# include <string>
+#include "PresidentialPardonForm.hpp"
+#include "AForm.hpp"
+#include "Bureaucrat.hpp"
+#include <iostream>
 
-class PresidentialPardonForm : private AForm  {
-	private:
-	std::string target;
+PresidentialPardonForm::PresidentialPardonForm():
+AForm("PresidentialPardonForm", 25, 5),
+target("No_target") 
+{}
 
-	public:
-	PresidentialPardonForm();
-	PresidentialPardonForm(std::string &target);
-	PresidentialPardonForm(const AForm &other);
-	~PresidentialPardonForm();
-	PresidentialPardonForm &operator=(const AForm &other);
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target):
+AForm("PresidentialPardonForm", 25, 5),
+target(target) 
+{}
 
-	void action() const;
-	bool executeForm(AForm const & form) const;
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other):
+AForm(other),
+target(other.getTarget())
+{}
 
-};
+PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
+{
+	if (this != &other)
+	{
+		AForm::operator=(other);
+		target = other.getTarget();
+	}
+	return *this;
+}
 
-#endif
+PresidentialPardonForm::~PresidentialPardonForm()
+{}
+
+void PresidentialPardonForm::action() const
+{
+	std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox.";
+}
+
+bool PresidentialPardonForm::execute(Bureaucrat const & executor) const
+{
+	if (executor.getGrade() > getGradeToExecute())
+	{
+		throw GradeTooLowException();
+		return false;
+	}
+	action();
+	return true;
+}
+
+
+
+
+std::string PresidentialPardonForm::getTarget() const
+{
+	return target;
+}
