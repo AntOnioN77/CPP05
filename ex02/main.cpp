@@ -2,6 +2,7 @@
 #include "AForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include <iostream>
 
 int main(void)
@@ -24,6 +25,7 @@ int main(void)
     empleado.executeForm(otroPerdon);
     std::cout << "[TEST 2 COMPLETADO] Verifica los mensajes" << std::endl;
 
+	// Test 3: Robotomy
 	Bureaucrat aprendiz("Aprendiz", 46);
 	RobotomyRequestForm robotomy("human3987324");
 	aprendiz.signForm(robotomy);
@@ -31,6 +33,20 @@ int main(void)
 	empleado.executeForm(robotomy);
     std::cout << "[TEST 3 COMPLETADO] Verifica los mensajes" << std::endl;
 
+	// Test 4: Romero
+	Bureaucrat Labrador("Labrador", 137);
+	ShrubberyCreationForm romero("Romero");
+	Labrador.signForm(romero);
+	Labrador.executeForm(romero);
+	std::cout << "[TEST 4 COMPLETADO] Verifica los mensajes" << std::endl;
+
+	// Test 5: Solicitud de "matojo" fallido por grado insuficiente
+	Bureaucrat aprendiz2("Aprendiz2", 138);
+
+	ShrubberyCreationForm matojo("Matojo");
+	aprendiz2.signForm(matojo);
+	aprendiz2.executeForm(matojo);
+	std::cout << "[TEST 5 COMPLETADO] Verifica los mensajes" << std::endl;
 
 
 

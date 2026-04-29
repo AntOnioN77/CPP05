@@ -2,6 +2,7 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 #include <iostream>
+#include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm():
 AForm("ShrubberyCreationForm", 145, 137),
@@ -33,7 +34,18 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 void ShrubberyCreationForm::action() const
 {
-	// Implementación pendiente
+	std::ofstream shrubbery((target + "_shrubbery").c_str(), std::ios::out);
+    shrubbery << "      |\n"
+              << "     \\|/|/\n"
+              << "   \\|\\|//|/\n"
+              << "   \\|\\|/|/\n"
+              << "     \\|//\n"
+              << "     \\|/\n"
+              << "     \\|/\n"
+              << "      |\n"
+              << "_\\|/__|_\\|/____\\|/_\n";
+
+    shrubbery.close();
 }
 
 bool ShrubberyCreationForm::execute(Bureaucrat const & executor) const
