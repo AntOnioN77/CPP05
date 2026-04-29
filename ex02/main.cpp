@@ -1,25 +1,38 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include <iostream>
 
 int main(void)
 {
     // Test 1: Ejecución exitosa de PresidentialPardonForm
-    Bureaucrat jefe("Jefe", 1);
-    PresidentialPardonForm perdon("Juan Perez");
+    Bureaucrat Zaphod("Zaphod", 5);
+    Bureaucrat empleado("Empleado", 25);
+	Bureaucrat subcontratado("Subcontratado", 26);
+    PresidentialPardonForm perdon("Arthur");
 
-    jefe.signForm(perdon);
-    jefe.executeForm(perdon);
-    std::cout << "[TEST 1 COMPLETADO] Verifica los mensajes de Bureaucrat::executeForm." << std::endl;
+    empleado.signForm(perdon);
+    Zaphod.executeForm(perdon);
+    std::cout << "[TEST 1 COMPLETADO] Verifica los mensajes" << std::endl;
 
     // Test 2: Ejecución fallida por grado insuficiente
-    Bureaucrat empleado("Empleado", 50);
-    PresidentialPardonForm otroPerdon("Maria Lopez");
+    PresidentialPardonForm otroPerdon("NPC");
 
+	subcontratado.signForm(otroPerdon);
     empleado.signForm(otroPerdon);
     empleado.executeForm(otroPerdon);
-    std::cout << "[TEST 2 COMPLETADO] Verifica los mensajes de Bureaucrat::executeForm." << std::endl;
+    std::cout << "[TEST 2 COMPLETADO] Verifica los mensajes" << std::endl;
+
+	Bureaucrat aprendiz("Aprendiz", 46);
+	RobotomyRequestForm robotomy("human3987324");
+	aprendiz.signForm(robotomy);
+	aprendiz.executeForm(robotomy);
+	empleado.executeForm(robotomy);
+    std::cout << "[TEST 3 COMPLETADO] Verifica los mensajes" << std::endl;
+
+
+
 
     return 0;
 }
