@@ -8,6 +8,7 @@ AForm("PresidentialPardonForm", 25, 5),
 target("No_target") 
 {}
 
+//Constructor standard
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target):
 AForm("PresidentialPardonForm", 25, 5),
 target(target) 
@@ -46,6 +47,9 @@ void PresidentialPardonForm::action() const
 	action();
 	return true;
 } */
+
+
+
 
 std::string PresidentialPardonForm::getTarget() const
 {
