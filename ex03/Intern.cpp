@@ -58,7 +58,8 @@ AForm *Intern::makeForm(const std::string &formName, const std::string &target) 
 	}
 	else
 	{
-		form = pile_forms[i].function(target);	
+		form = pile_forms[i].function(target);
+		std::cout << "Intern creates " << formName << std::endl;
 	}
 	return form;
 }

@@ -1,6 +1,8 @@
 #ifndef AFORM_HPP
 # define AFORM_HPP
 # include <string>
+# include <ostream>
+# include <exception>
 
 class Bureaucrat;
 

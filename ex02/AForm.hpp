@@ -1,6 +1,8 @@
 #ifndef AFORM_HPP
 # define AFORM_HPP
 # include <string>
+# include <ostream>
+# include <exception>
 
 class Bureaucrat;
 
@@ -37,12 +39,9 @@ class AForm{
 	class GradeTooLowException : public std::exception{
 		const char* what() const throw();
 	};
-	//Nueva
 	class NotSignedException : public std::exception{
 		const char* what() const throw();
 	};
-
-
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& Aform);

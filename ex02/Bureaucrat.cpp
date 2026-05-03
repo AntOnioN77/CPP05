@@ -23,11 +23,11 @@ grade(grade)
 Bureaucrat::Bureaucrat(const Bureaucrat &other):
 name(other.getName()),
 grade(other.getGrade())
-{};
+{}
 
 // Destructor
 Bureaucrat::~Bureaucrat()
-{};
+{}
 
 //Operador de asignación
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)
