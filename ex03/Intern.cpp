@@ -25,17 +25,17 @@ Intern& Intern::operator=(const Intern &other)
 	return *this;
 }
 
-AForm *Intern::DinamicRobotomyForm(const std::string &target)
+AForm *Intern::NewRobotomyForm(const std::string &target)
 {
 	return new RobotomyRequestForm(target);
 }
 
-AForm *Intern::DinamicShrubberyForm(const std::string &target)
+AForm *Intern::NewShrubberyForm(const std::string &target)
 {
 	return new ShrubberyCreationForm(target);
 }
 
-AForm *Intern::DinamicPardonForm(const std::string &target)
+AForm *Intern::NewPardonForm(const std::string &target)
 {
 	return new PresidentialPardonForm(target);
 }
@@ -44,9 +44,9 @@ AForm *Intern::DinamicPardonForm(const std::string &target)
 AForm *Intern::makeForm(const std::string &formName, const std::string &target) const
 {
 		const name_form pile_forms[3] = {
-		{"robotomy request", DinamicRobotomyForm},
-		{"shrubbery creation", DinamicShrubberyForm},
-		{"presidential pardon", DinamicPardonForm}
+		{"robotomy request", NewRobotomyForm},
+		{"shrubbery creation", NewShrubberyForm},
+		{"presidential pardon", NewPardonForm}
 	};
 	AForm * form;
 	int i;

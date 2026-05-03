@@ -48,17 +48,6 @@ void RobotomyRequestForm::action() const
 		std::cout << "Robotomy failed. (:C)" <<std::endl;
 }
 
-/* bool RobotomyRequestForm::execute(Bureaucrat const & executor) const
-{
-	if (executor.getGrade() > getGradeToExecute())
-	{
-		throw GradeTooLowException();
-		return false;
-	}
-	action();
-	return true;
-} */
-
 std::string RobotomyRequestForm::getTarget() const
 {
 	return target;

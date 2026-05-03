@@ -14,9 +14,9 @@ struct name_form{
 class Intern {
 private:
 	
-	static AForm *DinamicRobotomyForm(const std::string &target);
-	static AForm *DinamicShrubberyForm(const std::string &target);
-	static AForm *DinamicPardonForm(const std::string &target);
+	static AForm *NewRobotomyForm(const std::string &target);
+	static AForm *NewShrubberyForm(const std::string &target);
+	static AForm *NewPardonForm(const std::string &target);
 
 public:
 	// Constructores

@@ -48,17 +48,6 @@ void ShrubberyCreationForm::action() const
     shrubbery.close();
 }
 
-/* bool ShrubberyCreationForm::execute(Bureaucrat const & executor) const
-{
-	if (executor.getGrade() > getGradeToExecute())
-	{
-		throw GradeTooLowException();
-		return false;
-	}
-	action();
-	return true;
-} */
-
 std::string ShrubberyCreationForm::getTarget() const
 {
 	return target;
