@@ -4,6 +4,8 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include <iostream>
+#include <time.h>
+#include <stdlib.h>
 
 int main(void)
 {
@@ -26,6 +28,7 @@ int main(void)
     std::cout << "[TEST 2 COMPLETADO] Verifica los mensajes" << std::endl;
 
 	// Test 3: Robotomy
+	srand(time(NULL));
 	Bureaucrat aprendiz("Aprendiz", 46);
 	RobotomyRequestForm robotomy("human3987324");
 	aprendiz.signForm(robotomy);
