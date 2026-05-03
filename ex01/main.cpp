@@ -22,7 +22,7 @@ int main(void)
     }
     catch(const std::exception& e)
     {
-        std::cout << "[TEST 2 SUPERADO] Excepción esperada capturada: " << e.what() << std::endl;
+        std::cout << "[TEST 2 SUPERADO] Excepción esperada:GradeTooHighException. Capturada:" << e.what() << std::endl;
     }
 
 // TEST 3: signForm con grado insuficiente
@@ -67,7 +67,7 @@ int main(void)
     }
     catch(const std::exception& e)
     {
-        std::cout << "[TEST 5 SUPERADO] Excepción esperada capturada: " << e.what() << std::endl;
+        std::cout << "[TEST 5 SUPERADO] Excepción esperada: GradeTooLowException. Capturada: " << e.what() << std::endl;
     }
 
     // TEST 6: operator<< de Form

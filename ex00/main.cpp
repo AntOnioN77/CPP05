@@ -12,7 +12,7 @@ int main(void)
 		Bureaucrat Goomba("Goomba", 150);
 		Goomba.upGrade();
 
-		std::cout << "provando operador <<: " << Goomba << std::endl;
+		std::cout << "provando operador <<: " << Goomba;
 	}
 	catch (std::exception &e)
 	{
@@ -35,8 +35,8 @@ int main(void)
 	std::cout << "TEST 3 (error GradeTooLowException en MiniGoomba) \n";
 	try
 	{
-		std::cout << "CREANDO --> Bureaucrat MiniGoomba(MiniGoomba, 1);" << std::endl;
-		Bureaucrat MiniGoomba("MiniGoomba", 0);
+		std::cout << "CREANDO --> Bureaucrat MiniGoomba(MiniGoomba, 151);" << std::endl;
+		Bureaucrat MiniGoomba("MiniGoomba", 151);
 	}
 	catch (std::exception &e)
 	{
@@ -44,7 +44,7 @@ int main(void)
 	}
 
 //TEST 4
-	std::cout << "TEST 3 (error GradeTooLowException en Goomba) \n";
+	std::cout << "TEST 4 (error GradeTooLowException en Goomba) \n";
 	try
 	{
 		std::cout << "CREANDO --> Bureaucrat Goomba(Goomba, 150);" << std::endl;
@@ -72,6 +72,5 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
-
+	return 0;
 }
