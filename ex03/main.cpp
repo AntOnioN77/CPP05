@@ -5,11 +5,15 @@
 #include "ShrubberyCreationForm.hpp"
 #include <iostream>
 #include "Intern.hpp"
+#include <time.h>
+#include <stdlib.h>
 
 int main(void)
 {
     Intern someRandomIntern;
 	AForm* rrf;
+
+	srand(time(NULL));
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 	if (rrf)
 	{

@@ -1,10 +1,7 @@
-#ifndef Intern_HPP
-# define Intern_HPP
+#ifndef INTERN_HPP
+# define INTERN_HPP
 # include <string>
 # include "AForm.hpp"
-# include "RobotomyRequestForm.hpp"
-
-#include <string>
 
 struct name_form{
 	std::string type;

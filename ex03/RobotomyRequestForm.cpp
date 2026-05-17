@@ -4,7 +4,6 @@
 #include <iostream>
 #include <unistd.h>
 #include <stdlib.h>
-#include <time.h>
 
 RobotomyRequestForm::RobotomyRequestForm():
 AForm("RobotomyRequestForm", 72, 45),
@@ -42,7 +41,6 @@ void RobotomyRequestForm::action() const
 	sleep(1);
 	std::cout << "chas, tsssk." <<std::endl;
 	sleep(1);
-	srand(time(NULL));  // <ctime>
 	if (rand() % 2)
 		std::cout << getTarget() << " has been robotomized!!" <<std::endl;
 	else
