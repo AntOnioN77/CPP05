@@ -5,50 +5,50 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-
-RobotomyRequestForm::RobotomyRequestForm():
+RobotomyRequestForm::RobotomyRequestForm() :
 AForm("RobotomyRequestForm", 72, 45),
-target("No_target") 
+target("No_target")
 {}
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target):
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target) :
 AForm("RobotomyRequestForm", 72, 45),
-target(target) 
+target(target)
 {}
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other):
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) :
 AForm(other),
 target(other.getTarget())
 {}
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
 {
-	if (this != &other)
-	{
-		AForm::operator=(other);
-		target = other.getTarget();
-	}
-	return *this;
+if (this != &other)
+{
+AForm::operator=(other);
+target = other.getTarget();
+}
+return *this;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {}
 
+// Simula ruido de taladro y decide éxito/fracaso pseudoaleatorio.
 void RobotomyRequestForm::action() const
 {
-	std::cout << "tsssk...\n";
-	sleep(1);
-	std::cout << "clunk!\n";
-	sleep(1);
-	std::cout << "chas, tsssk." <<std::endl;
-	sleep(1);
-	if (rand() % 2)
-		std::cout << getTarget() << " has been robotomized!!" <<std::endl;
-	else
-		std::cout << "Robotomy failed. (:C)" <<std::endl;
+std::cout << "tsssk...\n";
+sleep(1);
+std::cout << "clunk!\n";
+sleep(1);
+std::cout << "chas, tsssk." << std::endl;
+sleep(1);
+if (rand() % 2)
+std::cout << getTarget() << " has been robotomized!!" << std::endl;
+else
+std::cout << "Robotomy failed. (:C)" << std::endl;
 }
 
 std::string RobotomyRequestForm::getTarget() const
 {
-	return target;
+return target;
 }

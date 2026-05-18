@@ -1,1 +1,11 @@
 subject.txt
+
+# Objetos y binarios C++
+*.o
+ex00/bureaucrat
+ex01/form
+ex02/form
+ex03/form
+
+# Archivos generados por tests de ShrubberyCreationForm
+*_shrubbery

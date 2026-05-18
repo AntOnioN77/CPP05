@@ -3,41 +3,43 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-PresidentialPardonForm::PresidentialPardonForm():
+// Configuración por defecto con nombre y umbrales requeridos por el subject.
+PresidentialPardonForm::PresidentialPardonForm() :
 AForm("PresidentialPardonForm", 25, 5),
-target("No_target") 
+target("No_target")
 {}
 
-//Constructor standard
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target):
+// Configuración explícita con target personalizado.
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target) :
 AForm("PresidentialPardonForm", 25, 5),
-target(target) 
+target(target)
 {}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other):
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) :
 AForm(other),
 target(other.getTarget())
 {}
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
 {
-	if (this != &other)
-	{
-		AForm::operator=(other);
-		target = other.getTarget();
-	}
-	return *this;
+if (this != &other)
+{
+AForm::operator=(other);
+target = other.getTarget();
+}
+return *this;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {}
 
+// Acción solicitada: anunciar el indulto del target.
 void PresidentialPardonForm::action() const
 {
-	std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
 std::string PresidentialPardonForm::getTarget() const
 {
-	return target;
+return target;
 }

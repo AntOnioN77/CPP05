@@ -1,5 +1,6 @@
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
+
 # include <iostream>
 # include <stdexcept>
 # include <string>
@@ -7,38 +8,41 @@
 
 class Form;
 
+// Burócrata que interactúa con AForm: firma y ejecución.
 class Bureaucrat {
 private:
-	// Atributos
-	const std::string name;
-	int grade;
+// Identidad fija.
+const std::string name;
+// Grado jerárquico permitido en [1..150].
+int grade;
 
 public:
-	// Constructores
-	Bureaucrat();
-	Bureaucrat(const std::string &name, int grade);
-	Bureaucrat(const Bureaucrat &other);
-	// Destructor
-	~Bureaucrat();
-	// Sobrecarga del operador de asignación
-	Bureaucrat &operator=(const Bureaucrat &other);
-	// Getters
-	const std::string &getName() const;
-	int getGrade() const;
-	// Setters
-	void upGrade();
-	void downGrade();
-	//otros
-	bool signForm(AForm &form);
-	bool executeForm(AForm const & form) const;
+// Forma canónica ortodoxa.
+Bureaucrat();
+Bureaucrat(const std::string &name, int grade);
+Bureaucrat(const Bureaucrat &other);
+~Bureaucrat();
+Bureaucrat &operator=(const Bureaucrat &other);
 
-class GradeTooHighException : public std::exception{
-	const char* what() const throw();
-};
-class GradeTooLowException : public std::exception{
-	const char* what() const throw();
-};
+// Getters.
+const std::string &getName() const;
+int getGrade() const;
 
+// Modificadores de grado con control de límites.
+void upGrade();
+void downGrade();
+
+// Firma un formulario; devuelve true si tuvo éxito.
+bool signForm(AForm &form);
+// Ejecuta un formulario; devuelve true si tuvo éxito.
+bool executeForm(AForm const & form) const;
+
+class GradeTooHighException : public std::exception {
+const char* what() const throw();
+};
+class GradeTooLowException : public std::exception {
+const char* what() const throw();
+};
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
