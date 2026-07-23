@@ -11,6 +11,7 @@
 int main(void)
 {
 // El intern funciona como fábrica central de formularios.
+// Cada caso verifica que makeForm devuelva el tipo correcto por nombre.
 Intern someRandomIntern;
 AForm* rrf;
 
@@ -44,6 +45,7 @@ delete ppf;
 }
 
 // Caso 4: nombre inexistente, debe devolver NULL.
+// Requisito: ante nombre inválido debe informar error y no crear formulario.
 AForm* nonExistentForm;
 nonExistentForm = someRandomIntern.makeForm("non-existent form", "Target");
 if (nonExistentForm)
