@@ -10,34 +10,44 @@
 
 int main(void)
 {
-    Intern someRandomIntern;
-	AForm* rrf;
+// El intern funciona como fábrica central de formularios.
+Intern someRandomIntern;
+AForm* rrf;
 
-	srand(time(NULL));
-	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-	if (rrf)
-	{
-		std::cout << *rrf;
-		delete rrf;
-	}
-	AForm* scf;
-	scf = someRandomIntern.makeForm("shrubbery creation", "Home");
-	if (scf)
-	{
-		std::cout << *scf;
-		delete scf;
-	}
-	AForm* ppf;
-	ppf = someRandomIntern.makeForm("presidential pardon", "Arthur Dent");
-	if (ppf)
-	{
-		std::cout << *ppf;
-		delete ppf;
-	}
-	AForm* nonExistentForm;
-	nonExistentForm = someRandomIntern.makeForm("non-existent form", "Target");
-	if (nonExistentForm)
-		delete nonExistentForm;
+// Semilla para acciones aleatorias de robotomy.
+srand(time(NULL));
 
-	return 0;
+// Caso 1: creación de robotomy request.
+rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+if (rrf)
+{
+std::cout << *rrf;
+delete rrf;
+}
+
+// Caso 2: creación de shrubbery creation.
+AForm* scf;
+scf = someRandomIntern.makeForm("shrubbery creation", "Home");
+if (scf)
+{
+std::cout << *scf;
+delete scf;
+}
+
+// Caso 3: creación de presidential pardon.
+AForm* ppf;
+ppf = someRandomIntern.makeForm("presidential pardon", "Arthur Dent");
+if (ppf)
+{
+std::cout << *ppf;
+delete ppf;
+}
+
+// Caso 4: nombre inexistente, debe devolver NULL.
+AForm* nonExistentForm;
+nonExistentForm = someRandomIntern.makeForm("non-existent form", "Target");
+if (nonExistentForm)
+delete nonExistentForm;
+
+return 0;
 }
