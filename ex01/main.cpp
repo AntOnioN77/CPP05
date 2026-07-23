@@ -3,6 +3,7 @@
 
 int main(void)
 {
+// Cada prueba está alineada con los requisitos del enunciado de ex01.
 // TEST 1: formulario válido (debe construirse sin excepción).
 try
 {
@@ -26,6 +27,7 @@ std::cout << "[TEST 2 SUPERADO] Excepción esperada:GradeTooHighException. Captu
 }
 
 // TEST 3: signForm falla por falta de rango suficiente.
+// Requisito: Form::beSigned debe rechazar burócratas con rango insuficiente.
 {
 Bureaucrat Oscar("Oscar", 2);
 Form Orden_Suprema("Orden_Suprema", 1, 40);
@@ -42,6 +44,7 @@ std::cout << "[TEST 3B FALLIDO] Esperado: Formulario no firmado. Obtenido: Formu
 }
 
 // TEST 4: signForm exitoso y comprobación del estado de firma.
+// Requisito: si el grado es suficiente, el formulario pasa a firmado.
 {
 Bureaucrat PedroP("PedroP", 1);
 Form Orden_Suprema("Orden_Suprema", 1, 40);
@@ -68,6 +71,7 @@ std::cout << "[TEST 5 SUPERADO] Excepción esperada: GradeTooLowException. Captu
 }
 
 // TEST 6: validación visual de operator<< antes y después de firmar.
+// Requisito: operator<< debe mostrar todos los datos relevantes del formulario.
 {
 Form Formulario_Test_out("Formulario_Test_out", 42, 10);
 std::cout << "[TEST 6A] Output operator<< (No signed):" << std::endl;

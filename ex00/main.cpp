@@ -2,6 +2,7 @@
 
 int main(void)
 {
+// Cada bloque valida un requisito explícito del enunciado de ex00.
 // TEST 1: flujo nominal con grados válidos y uso de operator<<
 std::cout << "TEST 1 (no errores) \n";
 try
@@ -43,6 +44,7 @@ std::cout << "Excepcion capturada! " << e.what() << std::endl;
 }
 
 // TEST 4: descenso fuera de rango desde 150 -> 151
+// Requisito: al salir del rango [1, 150] debe lanzarse excepción.
 std::cout << "TEST 4 (error GradeTooLowException en Goomba) \n";
 try
 {
@@ -57,6 +59,7 @@ std::cerr << e.what() << '\n';
 }
 
 // TEST 5: ascenso fuera de rango desde 1 -> 0
+// Requisito: grade 1 es el máximo, no se puede incrementar más.
 std::cout << "TEST 5 (error GradeTooHighException en Bowser) \n";
 try
 {
